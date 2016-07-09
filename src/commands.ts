@@ -32,9 +32,10 @@ export function insertFileHeaderComment() {
             var template = (langConfs.get(languageStr + ".template") as Array<String>).join("\n");
             
             _editor.edit((edit) => {
-                edit.insert(new vscode.Position(1, 1), template
+                edit.insert(new vscode.Position(0, 0), template
                     .replace("$(projectName)", values.projectName)
-                    .replace("$(currentFile)", values.currentFile));
+                    .replace("$(currentFile)", values.currentFile)
+                    .replace("$(date)", (new Date()).toLocaleString()));
             });
             
             vscode.commands.executeCommand("workbench.action.files.save");
