@@ -1,15 +1,14 @@
 {
-    "name": "vscode-file-header-comment-helper",
-    "displayName": "File-Header-Comment Helper for Visual Studio Code",
-    "description": "An extension [for Visual Studio Code], that was created to help simplify the task of adding file-header comments to source code.",
-    "version": "0.4.0",
+    "name": "vscode-file-header-comment",
+    "displayName": "File-Header Comment Creator",
+    "description": "An extension to simplify insertion the of file-header comments.",
+    "version": "0.6.0",
     "license": "MIT",
     "author": {
-        "name": "Brynden \"Gigabyte Giant\" Bielefeld",
-        "email": "brynden.bielefeld@hotmail.com",
-        "url": "https://gigabyte-giant.github.io/"
+        "name": "Denis Schwachhofer",
+        "email": "d.schwachhofer@mailbox.org"
     },
-    "publisher": "Gigabyte-Giant",
+    "publisher": "Animu5",
     "categories": [
         "Other"
     ],
@@ -33,7 +32,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Gigabyte-Giant/vscode-file-header-comment-helper.git"
+        "url": "https://github.com/animu5/vscode-file-header-comment.git"
     },
     "activationEvents": [
         "onCommand:extension.insertFileHeaderComment"
