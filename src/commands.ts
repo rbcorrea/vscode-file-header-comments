@@ -38,7 +38,12 @@ export function insertFileHeaderComment() {
                 edit.insert(new vscode.Position(0, 0), template
                     .replace("$(projectName)", values.projectName)
                     .replace("$(currentFile)", values.currentFile)
-                    .replace("$(date)", (new Date()).toLocaleString()));
+                    .replace("$(date)", (new Date()).toLocaleString())
+                    .replace(/\$\(date\:([^\)]+)?\)/i, (match, datefmt) => {
+                        try {
+                            return dateFormat(new Date(), !datefmt ? "isoDateTime" : datefmt);
+                        } catch (err) { }
+                    }));
             });
 
             vscode.commands.executeCommand("workbench.action.files.save");
