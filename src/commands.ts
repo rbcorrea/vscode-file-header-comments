@@ -10,6 +10,8 @@ export function insertFileHeaderComment() {
     let _window = vscode.window;
     let _editor = _window.activeTextEditor;
     let _root = _workspace.rootPath;
+    let _filename = _editor.document.fileName;
+    console.log(_filename);
 
     var projConf = _workspace.getConfiguration((configPrefix + ".projectSettings"));
     var langConfs = _workspace.getConfiguration((configPrefix + ".languageConfigs"));
@@ -19,17 +21,22 @@ export function insertFileHeaderComment() {
         "currentFile": undefined
     };
 
-    if (_root !== undefined && _editor !== undefined) {
+    if (_editor !== undefined) {
         var languageStr = ("language_" + _editor.document.languageId);
 
         if (projConf.has("projectName") && projConf.get("projectName") !== null) {
             values.projectName = projConf.get("projectName");
-        } else {
+        } else if (_root !== undefined) {
             var folders = _root.split(path.sep)
             values.projectName = folders[folders.length - 1];
+        } else {
+            vscode.window.showErrorMessage("projectName undefined!");
         }
-
-        values.currentFile = _editor.document.fileName.replace(_root, "").substr(1);
+        if (_root !== undefined) {
+            values.currentFile = _editor.document.fileName.replace(_root, "").substr(1);
+        } else {
+            values.currentFile = _filename;
+        }
 
         if (langConfs.has(languageStr)) {
             var template = (langConfs.get(languageStr + ".template") as Array<string>).join("\n");
