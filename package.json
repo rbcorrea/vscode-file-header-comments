@@ -2,7 +2,7 @@
     "name": "vscode-file-header-comment",
     "displayName": "File-Header Comment Creator",
     "description": "An extension to simplify insertion the of file-header comments.",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "license": "MIT",
     "author": {
         "name": "Denis Schwachhofer",

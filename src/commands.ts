@@ -30,7 +30,7 @@ export function insertFileHeaderComment() {
             var folders = _root.split(path.sep)
             values.projectName = folders[folders.length - 1];
         } else {
-            vscode.window.showErrorMessage("projectName undefined!");
+            vscode.window.showWarningMessage("projectName undefined!");
         }
         if (_root !== undefined) {
             values.currentFile = _editor.document.fileName.replace(_root, "").substr(1);

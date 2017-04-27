@@ -52,8 +52,8 @@ Yes, I also have an opinion about this extension, but I won't offer-it-up, becau
 
 ## Substitution variables
 
-- `$(projectName)`: Is either replaced by the name of the worksapce directory or can be set with `fileHeaderCommentHelper.projectSettings`
-- `$(currentFile)`: Is replaced by the current file name consisting of the whole path relative to the root of the workspace
+- `$(projectName)`: Is either replaced by the name of the worksapce directory or can be set with `fileHeaderCommentHelper.projectSettings` (**Note:** If no workspace is defined and `fileHeaderCommentHelper.projectSettings` is not set then a warning will be emitted and the project name will be literally "undefined" )
+- `$(currentFile)`: Is replaced by the current file name consisting of the whole path relative to the root of the workspace (**Note:** If no workspace is defined `$(currentFile)` equals `$(FileBasename)`.
 - `$(FileBasename)`: Is replaced by only the current file name without path
 - `$(date)`: Is replaced by the current date with a localized date format
 - `$(date:fmtstring)`: Is replaced by the current date in the format `fmtstring`. If empty 'isoDateTime' is used which has the fomat 'yyyy-mm-dd'T'HH:MM:ss'. For more information on format string see [dateformat](https://www.npmjs.com/package/dateformat).
